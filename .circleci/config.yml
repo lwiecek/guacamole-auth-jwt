@@ -40,10 +40,6 @@ jobs:
 
       - run: gradle fatJar
 
-      - save_cache:
-          key: the-build
-          paths: ./build/libs
-
       - store_artifacts:
           path: ./build/libs
 
@@ -59,14 +55,12 @@ jobs:
     steps:
       - attach_workspace:
           at: ./artifacts
-      - restore_cache:
-          key: the-build
       - run:
           name: "Publish Release on GitHub"
           command: |
             go get github.com/tcnksm/ghr
-#            VERSION=$(my-binary --version)
-#            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
+            VERSION=1.1.0
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/libs/
 
 workflows:
   version: 2

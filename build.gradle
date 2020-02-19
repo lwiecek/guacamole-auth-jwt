@@ -31,5 +31,6 @@ task fatJar(type: Jar) {
     }
     archiveBaseName = project.name + '-all'
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+
     with jar
 }

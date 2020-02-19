@@ -42,10 +42,10 @@ jobs:
 
       - save_cache:
           key: the-build
-          paths: ~/build/libs
+          paths: ./build/libs
 
       - store_artifacts:
-          path: ~/build/libs
+          path: ./build/libs
 
 
   nodash:

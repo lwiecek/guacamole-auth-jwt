@@ -49,18 +49,18 @@ jobs:
             - libs
 
 
-  publish-github-release:
-    docker:
-      - image: circleci/golang:1.9
-    steps:
-      - attach_workspace:
-          at: ./artifacts
-      - run:
-          name: "Publish Release on GitHub"
-          command: |
-            go get github.com/tcnksm/ghr
-            VERSION=1.1.0
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/libs/
+#  publish-github-release:
+#    docker:
+#      - image: circleci/golang:1.9
+#    steps:
+#      - attach_workspace:
+#          at: ./artifacts
+#      - run:
+#          name: "Publish Release on GitHub"
+#          command: |
+#            go get github.com/tcnksm/ghr
+#            VERSION=1.1.0
+#            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/libs/
 
 workflows:
   version: 2

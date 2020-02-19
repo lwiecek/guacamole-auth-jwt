@@ -47,6 +47,11 @@ jobs:
       - store_artifacts:
           path: ./build/libs
 
+      - persist_to_workspace:
+          root: ./build
+          paths:
+            - libs
+
 
   publish-github-release:
     docker:

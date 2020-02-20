@@ -6,7 +6,7 @@ targetCompatibility = 1.8
 group = 'com.aiden0z.guacamole-auth-jwt'
 version = '1.1.0'
 
-description = """ guacamole custome authentication based on JSON WEB TOKEN """
+description = """ guacamole custom authentication based on JSON WEB TOKEN """
 
 
 repositories {
